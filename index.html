@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CT Registration and Population Locations of Strokes</title>
+  <meta charset="utf-8">
+  <meta name="description" content="CT Registration and Population Locations of Strokes">
+  <meta name="author" content="John Muschelli">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>CT Registration and Population Locations of Strokes</h1>
+    <h2></h2>
+    <p>John Muschelli<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Goals</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li> Register patient CT scans to a CT template</li>
+<li> Create a 3-dimensional (3D) density map</li>
+<li> Provide a breakdown of hemorrhage engagement of individual regions </li>
+<li> Test if differences in location relating to a NIHSS/GCS</li>
+<li> Generate a stroke ROI that is likely to be associated with NIHSS/GCS and test its predictive performance using within-sample validation</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Registration of CT Scans</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="regfig.png", style="height:500px;"></p>
+
+<!--"width:400px; height:400px;-->
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>3-dimensional (3D) density map</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Brighter means higher percentage </p>
+
+<p><img src="pop_fig.png", style="height:500px;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Breakdown of hemorrhage engagement</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>How to best display a table of results?</p></li>
+<li><p>We used 3 different templates: MNI, EVE-1, EVE-2</p></li>
+<li><p>Difference between them? </p>
+
+<ul>
+<li>MNI does not do any white matter segmentation</li>
+<li>EVE-1 delineates WM into separate regions</li>
+<li>EVE-2 lumps WM more in with GM</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Breakdown of hemorrhage engagement: MNI</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>MNI: Top Location: Putamen </p>
+
+<TABLE border = 1, id="100-318_20070723_0957MNI">
+<TR> <TH> Area </TH> <TH> MNI </TH>  </TR>
+  <TR> <TD> Putamen </TD> <TD align="right"> 44.30 </TD> </TR>
+  <TR> <TD> Insula </TD> <TD align="right"> 25.30 </TD> </TR>
+  <TR> <TD> Uncategorized </TD> <TD align="right"> 18.50 </TD> </TR>
+  <TR> <TD> Temporal Lobe </TD> <TD align="right"> 7.70 </TD> </TR>
+  <TR> <TD> Thalamus </TD> <TD align="right"> 2.30 </TD> </TR>
+  <TR> <TD> Frontal Lobe </TD> <TD align="right"> 1.80 </TD> </TR>
+  <TR> <TD> Caudate </TD> <TD align="right"> 0.10 </TD> </TR>
+   </TABLE>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Breakdown of hemorrhage engagement: EVE_1</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>EVE_1: Top Location: PUTAMEN_left</p>
+
+<TABLE border = 1, id="100-318_20070723_0957EVE_1">
+<TR> <TH> Area </TH> <TH> EVE_1 </TH>  </TR>
+  <TR> <TD> PUTAMEN_left </TD> <TD align="right"> 22.50 </TD> </TR>
+  <TR> <TD> External_capsule_left </TD> <TD align="right"> 14.90 </TD> </TR>
+  <TR> <TD> Posterior_limb_of_internal_capsule_left </TD> <TD align="right"> 8.90 </TD> </TR>
+  <TR> <TD> INSULAR </TD> <TD align="right"> 8.80 </TD> </TR>
+  <TR> <TD> Background </TD> <TD align="right"> 7.70 </TD> </TR>
+  <TR> <TD> GLOBUS_PALLIDUS_left </TD> <TD align="right"> 5.10 </TD> </TR>
+  <TR> <TD> PRECENTRAL_WM_left </TD> <TD align="right"> 5.00 </TD> </TR>
+  <TR> <TD> Inferior_fronto-occipital_fasciculus_left </TD> <TD align="right"> 4.10 </TD> </TR>
+  <TR> <TD> Superior_corona_radiata_left </TD> <TD align="right"> 4.10 </TD> </TR>
+  <TR> <TD> Retrolenticular_part_of_internal_capsule_left </TD> <TD align="right"> 4.00 </TD> </TR>
+  <TR> <TD> Fornix(cres)_Stria_terminalis_left </TD> <TD align="right"> 2.60 </TD> </TR>
+  <TR> <TD> PRECENTRAL_GYRUS_left </TD> <TD align="right"> 2.50 </TD> </TR>
+  <TR> <TD> SUPERIOR_TEMPORAL_GYRUS </TD> <TD align="right"> 2.20 </TD> </TR>
+  <TR> <TD> INFERIOR_FRONTAL_WM_left </TD> <TD align="right"> 2.10 </TD> </TR>
+  <TR> <TD> Anterior_limb_of_internal_capsule_left </TD> <TD align="right"> 1.30 </TD> </TR>
+  <TR> <TD> Sagittal_stratum_left </TD> <TD align="right"> 1.10 </TD> </TR>
+  <TR> <TD> Uncinate_fasciculus_left </TD> <TD align="right"> 0.70 </TD> </TR>
+  <TR> <TD> INFERIOR_TEMPORAL_WM_left </TD> <TD align="right"> 0.40 </TD> </TR>
+  <TR> <TD> POSTCENTRAL_GYRUS_left </TD> <TD align="right"> 0.40 </TD> </TR>
+  <TR> <TD> Cerebral_peduncle_left </TD> <TD align="right"> 0.30 </TD> </TR>
+  <TR> <TD> INFERIOR_FRONTAL_GYRUS_left </TD> <TD align="right"> 0.30 </TD> </TR>
+  <TR> <TD> INFERIOR_TEMPORAL_GYRUS </TD> <TD align="right"> 0.30 </TD> </TR>
+  <TR> <TD> POSTCENTRAL_WM_left </TD> <TD align="right"> 0.30 </TD> </TR>
+  <TR> <TD> SUPERIOR_TEMPORAL_WM_left </TD> <TD align="right"> 0.30 </TD> </TR>
+   </TABLE>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Test if differences in location</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>For NIHSS:</p>
+
+<p><img src="Regression_Map_heatcol1.png", style="height:500px;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Test if differences in location</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>For GCS:</p>
+
+<p><img src="GCS_Regression_Map_heatcol1.png", style="height:500px;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>ROI</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>ROI for GCS, top 2000 p-values:</p>
+
+<p><img src="GCS_Top_2000_pvalues.png", style="height:500px;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>ROI</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>ROI for GCS, top 22858 p-values:</p>
+
+<p><img src="GCS_Top_22858_pvalues.png", style="height:500px;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>ROI Prediction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="tables.png", style="height:500px;"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Validation</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>111 patients to 3 readers</p></li>
+<li><p>22 patients randomly selected twice (each reader got the same duplicates)</p></li>
+<li><p>Send the images (NIfTI) and the images that were registered to template</p></li>
+<li><p>CT Scoring (Natalie)</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Goals'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Registration of CT Scans'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='3-dimensional (3D) density map'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Breakdown of hemorrhage engagement'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Breakdown of hemorrhage engagement: MNI'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Breakdown of hemorrhage engagement: EVE_1'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Test if differences in location'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Test if differences in location'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='ROI'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='ROI'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='ROI Prediction'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Validation'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title=''>
+         13
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
